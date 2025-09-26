@@ -129,6 +129,7 @@
 .afiliados-search-card {
   border: 1.5px solid #e5e7eb;
   border-radius: 16px;
+  text-align: left;
   background: #fff;
   box-shadow: none;
   padding: 1.2rem 1.5rem 1.5rem 1.5rem;
@@ -159,17 +160,17 @@
   width: 100%;
 }
 .afiliados-search-field {
-  display: flex;
-  flex-direction: column;
+  flex: 1;
   min-width: 0;
   width: 100%;
-  max-width: 260px;
+  
 }
 .afiliados-search-label {
   font-size: 1rem;
   font-weight: 600;
   color: #18181b;
   margin-bottom: 0.5em;
+  display: block;
 }
 .afiliados-search-input {
   background: #f6f6f8;
