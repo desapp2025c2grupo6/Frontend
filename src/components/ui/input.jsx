@@ -1,3 +1,4 @@
+import "./input.css";
 import * as React from "react";
 import { cn } from "./utils";
 

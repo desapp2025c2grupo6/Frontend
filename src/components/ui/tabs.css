@@ -1,0 +1,37 @@
+
+.tabs-navbar {
+  background: none;
+  box-shadow: none;
+  width: 100%;
+}
+.tabs-navbar .TabsList {
+  display: flex;
+  gap: 0.7rem;
+  background: none;
+  box-shadow: none;
+  border: none;
+  width: 100%;
+}
+.tabs-navbar .TabsTrigger {
+  background: #fff;
+  color: #18181b;
+  border: 1.5px solid #ececec;
+  border-radius: 999px;
+  padding: 0.55em 1.7em;
+  font-size: 1.05rem;
+  font-weight: 500;
+  transition: background 0.18s, color 0.18s, border 0.18s;
+  outline: none;
+  margin-bottom: 0;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.03);
+}
+.tabs-navbar .TabsTrigger[data-state="active"],
+.tabs-navbar .TabsTrigger.active {
+  background: #18181b;
+  color: #fff;
+  border: 1.5px solid #18181b;
+}
+.tabs-navbar .TabsTrigger:hover {
+  background: #f3f4f6;
+  color: #18181b;
+}

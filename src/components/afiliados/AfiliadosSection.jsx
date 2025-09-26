@@ -56,19 +56,19 @@ export function AfiliadosSection() {
   return (
     <div className="afiliados-section space-y-8">
       {/* Header con búsqueda y nuevo afiliado */}
-      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 pb-2 border-b border-gray-200">
-        <div>
-          <h2 className="text-2xl font-bold text-gray-900">Gestión de Afiliados</h2>
-          <p className="text-gray-500">Administra grupos familiares y sus integrantes</p>
+      <div className="afiliados-header-bar">
+        <div className="afiliados-header-titles">
+          <h2 className="afiliados-title">Gestión de Afiliados</h2>
+          <p className="afiliados-subtitle">Administre los grupos familiares y sus integrantes</p>
         </div>
         <Dialog open={mostrarFormulario} onOpenChange={setMostrarFormulario}>
           <DialogTrigger asChild>
-            <Button className="flex items-center space-x-2">
-              <Plus className="h-4 w-4" />
-              <span>Nuevo Grupo Familiar</span>
+            <Button className="afiliados-nuevo-btn" variant="default">
+              <Plus style={{ width: 18, height: 18, marginRight: 8 }} />
+              Nuevo Grupo Familiar
             </Button>
           </DialogTrigger>
-          <DialogContent className="max-w-4xl max-h-[80vh] overflow-y-auto">
+          <DialogContent className="afiliados-dialog-content">
             <DialogHeader>
               <DialogTitle>Crear Nuevo Grupo Familiar</DialogTitle>
             </DialogHeader>
@@ -83,95 +83,104 @@ export function AfiliadosSection() {
         </Dialog>
       </div>
       {/* Filtros */}
-      <Card className="shadow-sm border border-gray-200">
-        <CardHeader>
-          <CardTitle className="flex items-center space-x-2 text-blue-700">
-            <Search className="h-5 w-5" />
-            <span>Buscar Afiliados</span>
-          </CardTitle>
-        </CardHeader>
-        <CardContent>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <div>
-              <label className="block mb-2">Apellido</label>
-              <Input
-                placeholder="Buscar por apellido..."
-                value={filtros.apellido || ''}
-                onChange={(e) => setFiltros({ ...filtros, apellido: e.target.value })}
-              />
-            </div>
-            <div>
-              <label className="block mb-2">N° Credencial</label>
-              <Input
-                placeholder="0000001-01"
-                value={filtros.numeroCredencial || ''}
-                onChange={(e) => setFiltros({ ...filtros, numeroCredencial: e.target.value })}
-              />
-            </div>
-            <div>
-              <label className="block mb-2">Fecha de Nacimiento</label>
-              <Input
-                type="date"
-                value={filtros.fechaNacimiento || ''}
-                onChange={(e) => setFiltros({ ...filtros, fechaNacimiento: e.target.value })}
-              />
-            </div>
+      <div className="afiliados-search-card">
+        <div className="afiliados-search-header">
+          <Search className="afiliados-search-icon" />
+          <span className="afiliados-search-title">Buscar Afiliados</span>
+        </div>
+        <form className="afiliados-search-form" autoComplete="off" onSubmit={e => e.preventDefault()}>
+          <div className="afiliados-search-field">
+            <label className="afiliados-search-label">Apellido</label>
+            <Input
+              className="afiliados-search-input"
+              placeholder="Buscar por apellido..."
+              value={filtros.apellido || ''}
+              onChange={(e) => setFiltros({ ...filtros, apellido: e.target.value })}
+            />
           </div>
-        </CardContent>
-      </Card>
+          <div className="afiliados-search-field">
+            <label className="afiliados-search-label">N° Credencial</label>
+            <Input
+              className="afiliados-search-input"
+              placeholder="0000001-01"
+              value={filtros.numeroCredencial || ''}
+              onChange={(e) => setFiltros({ ...filtros, numeroCredencial: e.target.value })}
+            />
+          </div>
+          <div className="afiliados-search-field">
+            <label className="afiliados-search-label">Fecha de Nacimiento</label>
+            <Input
+              className="afiliados-search-input afiliados-search-date"
+              type="text"
+              inputMode="numeric"
+              pattern="^(0[1-9]|[12][0-9]|3[01])/(0[1-9]|1[0-2])/\d{4}$"
+              placeholder="dd/mm/aaaa"
+              maxLength={10}
+              value={filtros.fechaNacimiento || ''}
+              onChange={e => {
+                // Solo permitir formato dd/mm/aaaa
+                let v = e.target.value.replace(/[^0-9/]/g, '');
+                if (v.length === 2 || v.length === 5) {
+                  if (e.nativeEvent.inputType !== 'deleteContentBackward') v += '/';
+                }
+                setFiltros({ ...filtros, fechaNacimiento: v.slice(0, 10) });
+              }}
+            />
+          </div>
+        </form>
+      </div>
       {/* Listado de grupos familiares */}
-      <div className="space-y-6">
+      <div className="afiliados-listado-grupos">
         {gruposFiltrados.map((grupo) => (
-          <Card key={grupo.id} className="overflow-hidden w-full shadow-md border border-gray-200">
-            <CardHeader className="bg-gray-50">
-              <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 md:gap-0">
-                <div className="flex items-center space-x-3">
-                  <Users className="h-5 w-5 text-blue-600" />
+          <Card key={grupo.id} className="grupo-card">
+            <CardHeader className="grupo-header-bar">
+              <div className="grupo-header-row">
+                <div className="grupo-header-row-main">
+                  <Users style={{ marginRight: 8, color: '#18181b', width: '1.5em', height: '1.5em' }} />
                   <div>
-                    <CardTitle className="text-lg font-semibold text-gray-800">
+                    <div className="grupo-header-title">
                       Grupo Familiar N° {grupo.numeroAfiliado}
-                    </CardTitle>
-                    <p className="text-sm text-gray-500">
-                      Alta: {new Date(grupo.fechaAlta).toLocaleDateString()} - 
-                      {grupo.integrantes.length} integrante{grupo.integrantes.length !== 1 ? 's' : ''}
-                    </p>
+                    </div>
+                    <div className="grupo-header-subtitle">
+                      Alta: {new Date(grupo.fechaAlta).toLocaleDateString()} - {grupo.integrantes.length} integrante{grupo.integrantes.length !== 1 ? 's' : ''}
+                    </div>
                   </div>
                 </div>
-                <div className="flex space-x-2">
-                  <Button variant="outline" size="sm" className="border-blue-600 text-blue-600 hover:bg-blue-50">
-                    <Edit className="h-4 w-4" />
+                <div className="grupo-header-actions">
+                  <Button className="grupo-action-btn grupo-action-edit" variant="outline">
+                    <Edit style={{ width: 18, height: 18 }} />
                   </Button>
-                  <Button variant="outline" size="sm" className="border-red-600 text-red-600 hover:bg-red-50">
-                    <Trash2 className="h-4 w-4" />
+                  <Button className="grupo-action-btn grupo-action-delete" variant="outline">
+                    <Trash2 style={{ width: 18, height: 18 }} />
                   </Button>
                 </div>
               </div>
             </CardHeader>
-            <CardContent className="p-0 overflow-x-auto">
-              <Table className="min-w-[600px] w-full text-sm">
+            <CardContent className="grupo-card-content">
+              <Table>
                 <TableHeader>
-                  <TableRow className="bg-blue-50">
-                    <TableHead className="font-semibold text-gray-700">Credencial</TableHead>
-                    <TableHead className="font-semibold text-gray-700">Nombre</TableHead>
-                    <TableHead className="font-semibold text-gray-700">Documento</TableHead>
-                    <TableHead className="font-semibold text-gray-700">Parentesco</TableHead>
-                    <TableHead className="font-semibold text-gray-700">Plan</TableHead>
-                    <TableHead className="font-semibold text-gray-700">Situaciones</TableHead>
-                    <TableHead className="font-semibold text-gray-700">Estado</TableHead>
+                  <TableRow>
+                    <TableHead className="grupo-table-th">Credencial</TableHead>
+                    <TableHead className="grupo-table-th">Nombre</TableHead>
+                    <TableHead className="grupo-table-th">Documento</TableHead>
+                    <TableHead className="grupo-table-th">Parentesco</TableHead>
+                    <TableHead className="grupo-table-th">Plan</TableHead>
+                    <TableHead className="grupo-table-th">Situaciones</TableHead>
+                    <TableHead className="grupo-table-th">Estado</TableHead>
                   </TableRow>
                 </TableHeader>
                 <TableBody>
                   {grupo.integrantes.map((integrante) => (
                     <TableRow key={integrante.id}>
-                      <TableCell className="font-mono">
+                      <TableCell className="grupo-table-td-mono">
                         {grupo.numeroAfiliado}-{integrante.numeroIntegrante}
                       </TableCell>
                       <TableCell>
                         <div>
-                          <div className="font-medium">
+                          <div className="grupo-table-nombre">
                             {integrante.nombre} {integrante.apellido}
                           </div>
-                          <div className="text-sm text-gray-500">
+                          <div className="grupo-table-fecha">
                             {new Date(integrante.fechaNacimiento).toLocaleDateString()}
                           </div>
                         </div>
@@ -190,15 +199,15 @@ export function AfiliadosSection() {
                         </Badge>
                       </TableCell>
                       <TableCell>
-                        <div className="flex flex-wrap gap-1">
+                        <div className="grupo-table-situaciones">
                           {integrante.situacionesTerapeuticas.length > 0 ? (
                             integrante.situacionesTerapeuticas.map((sitId, index) => (
-                              <Badge key={index} variant="outline" className="text-xs">
+                              <Badge key={index} variant="outline" className="grupo-table-situacion-badge">
                                 {sitId}
                               </Badge>
                             ))
                           ) : (
-                            <span className="text-gray-400 text-sm">Ninguna</span>
+                            <span className="grupo-table-situacion-vacia">Ninguna</span>
                           )}
                         </div>
                       </TableCell>
@@ -216,18 +225,15 @@ export function AfiliadosSection() {
         ))}
       </div>
       {gruposFiltrados.length === 0 && (
-        <Card className="shadow-sm border border-gray-200">
-          <CardContent className="py-12 text-center">
-            <Users className="h-12 w-12 text-gray-400 mx-auto mb-4" />
-            <h3 className="text-lg font-semibold text-gray-900 mb-2">No se encontraron grupos familiares</h3>
-            <p className="text-gray-500">
-              {Object.values(filtros).some(v => v) 
-                ? 'Intenta ajustar los filtros de búsqueda'
-                : 'Comienza creando un nuevo grupo familiar'
-              }
-            </p>
-          </CardContent>
-        </Card>
+        <div className="afiliados-vacio-card">
+          <Users className="afiliados-vacio-icon" />
+          <h3 className="afiliados-vacio-title">No se encontraron grupos familiares</h3>
+          <p className="afiliados-vacio-desc">
+            {Object.values(filtros).some(v => v) 
+              ? 'Intenta ajustar los filtros de búsqueda'
+              : 'Comienza creando un nuevo grupo familiar'}
+          </p>
+        </div>
       )}
 
     </div>
@@ -235,4 +241,3 @@ export function AfiliadosSection() {
 }
 
 export default AfiliadosSection;
-

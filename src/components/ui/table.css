@@ -1,0 +1,25 @@
+
+.table, table[data-slot="table"] {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: #fff;
+  font-size: 1rem;
+  border-radius: 12px;
+  overflow: hidden;
+}
+.table th, table[data-slot="table"] th {
+  color: #334155;
+  font-weight: 600;
+  background: #f1f5f9;
+  padding: 0.5rem 0.75rem;
+  text-align: left;
+}
+.table td, table[data-slot="table"] td {
+  padding: 0.5rem 0.75rem;
+  text-align: left;
+  border-bottom: 1px solid #e5e7eb;
+}
+.table tr:last-child td, table[data-slot="table"] tr:last-child td {
+  border-bottom: none;
+}

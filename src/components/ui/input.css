@@ -1,0 +1,25 @@
+
+.input, input[data-slot="input"] {
+  background: #f6f6f8;
+  border: 1.5px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 0.55em 0.9em;
+  font-size: 0.98rem;
+  color: #22223b;
+  transition: border 0.18s, background 0.18s;
+  outline: none;
+  box-shadow: none;
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  height: 2.2em;
+  box-sizing: border-box;
+}
+.input:focus, input[data-slot="input"]:focus {
+  border-color: #18181b;
+  background: #f3f4f6;
+}
+.input::placeholder, input[data-slot="input"]::placeholder {
+  color: #b0b3b8;
+  opacity: 1;
+}

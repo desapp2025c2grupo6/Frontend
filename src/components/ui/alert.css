@@ -1,0 +1,24 @@
+
+.alert {
+  border-radius: 8px;
+  border: 1.5px solid #e5e7eb;
+  background: #fffbe6;
+  color: #b45309;
+  padding: 1rem 1.5rem;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+.alert-success {
+  background: #e6fffa;
+  color: #059669;
+  border-color: #34d399;
+}
+.alert-error {
+  background: #fef2f2;
+  color: #dc2626;
+  border-color: #dc2626;
+}

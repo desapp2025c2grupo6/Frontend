@@ -1,0 +1,27 @@
+
+.Card, .grupo-card {
+  border-radius: 16px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  border: 2px solid #e0e0e0;
+  background: #fff;
+  margin-bottom: 2rem;
+}
+.grupo-header-bar {
+  background: #f7f7fa;
+  border-bottom: 1.5px solid #ececec;
+  border-radius: 16px 16px 0 0;
+  padding: 1.1rem 1.5rem 0.7rem 1.5rem;
+}
+.grupo-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+.grupo-header-title {
+  font-size: 1.13rem;
+  font-weight: 700;
+  color: #18181b;
+  margin-bottom: 0;
+  line-height: 1.1;
+}

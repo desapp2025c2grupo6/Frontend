@@ -1,19 +1,33 @@
 
 import { Tabs, TabsList, TabsTrigger } from "../ui/tabs";
+import { Users, Stethoscope, Calendar, BarChart2 } from "lucide-react";
 
 export default function Header({ activeTab, onTabChange }) {
   return (
-    <header className="bg-white shadow mb-6">
-      <div className="max-w-7xl mx-auto px-4 py-4 flex flex-col sm:flex-row sm:items-center sm:justify-between">
-        <h1 className="text-2xl font-bold text-gray-900 mb-2 sm:mb-0">Gestión de la App</h1>
-        <Tabs value={activeTab} onValueChange={onTabChange} className="w-full sm:w-auto">
-          <TabsList>
-            <TabsTrigger value="afiliados">Afiliados</TabsTrigger>
-            <TabsTrigger value="prestadores">Prestadores</TabsTrigger>
-            <TabsTrigger value="agendas">Agendas</TabsTrigger>
-            <TabsTrigger value="reportes">Reportes</TabsTrigger>
-          </TabsList>
-        </Tabs>
+    <header className="navbar-header">
+      <div className="navbar-content-full">
+        <div className="navbar-title-group">
+          <h1 className="navbar-title">Sistema de Medicina Integral</h1>
+          <div className="navbar-subtitle">Administración de afiliados y prestadores</div>
+        </div>
+        <nav className="navbar-menu-below">
+          <Tabs value={activeTab} onValueChange={onTabChange} className="tabs-navbar">
+            <TabsList className="TabsList">
+              <TabsTrigger value="afiliados" className="TabsTrigger">
+                <Users style={{ width: 20, height: 20, marginRight: 6 }} /> Afiliados
+              </TabsTrigger>
+              <TabsTrigger value="prestadores" className="TabsTrigger">
+                <Stethoscope style={{ width: 20, height: 20, marginRight: 6 }} /> Prestadores
+              </TabsTrigger>
+              <TabsTrigger value="agendas" className="TabsTrigger">
+                <Calendar style={{ width: 20, height: 20, marginRight: 6 }} /> Agendas
+              </TabsTrigger>
+              <TabsTrigger value="reportes" className="TabsTrigger">
+                <BarChart2 style={{ width: 20, height: 20, marginRight: 6 }} /> Reportes
+              </TabsTrigger>
+            </TabsList>
+          </Tabs>
+        </nav>
       </div>
     </header>
   );

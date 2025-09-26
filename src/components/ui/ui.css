@@ -1,0 +1,275 @@
+/* NAVBAR HEADER ESTILO DASHBOARD */
+.navbar-header {
+  width: 100%;
+  background: #fff;
+  border-bottom: 1px solid #ececec;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+  position: sticky;
+  top: 0;
+  z-index: 20;
+}
+.navbar-content-full {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 1.2rem 2.5rem 0.5rem 2.5rem;
+}
+.navbar-title-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 0.2rem;
+}
+.navbar-title {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #18181b;
+  margin-bottom: 0.1em;
+  line-height: 1.1;
+}
+.navbar-subtitle {
+  font-size: 1.08rem;
+  color: #666;
+  font-weight: 400;
+  margin-left: 2px;
+  margin-bottom: 1.1rem;
+}
+.navbar-menu-below {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 0.2rem;
+}
+.tabs-navbar {
+  background: none;
+  box-shadow: none;
+  width: 100%;
+}
+.tabs-navbar .TabsList {
+  display: flex;
+  gap: 0.7rem;
+  background: none;
+  box-shadow: none;
+  border: none;
+  width: 100%;
+}
+.tabs-navbar .TabsTrigger {
+  background: #fff;
+  color: #18181b;
+  border: 1.5px solid #ececec;
+  border-radius: 999px;
+  padding: 0.55em 1.7em;
+  font-size: 1.05rem;
+  font-weight: 500;
+  transition: background 0.18s, color 0.18s, border 0.18s;
+  outline: none;
+  margin-bottom: 0;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.03);
+}
+.tabs-navbar .TabsTrigger[data-state="active"],
+.tabs-navbar .TabsTrigger.active {
+  background: #18181b;
+  color: #fff;
+  border: 1.5px solid #18181b;
+}
+.tabs-navbar .TabsTrigger:hover {
+  background: #f3f4f6;
+  color: #18181b;
+}
+
+/* HEADER DE AFILIADOS Y BOTÓN NUEVO GRUPO FAMILIAR */
+.afiliados-header-bar {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 0.5rem 0 1.2rem 0;
+  margin-bottom: 0.5rem;
+  border-bottom: 1.5px solid #ececec;
+  gap: 1.5rem;
+}
+.afiliados-header-titles {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.2rem;
+}
+.afiliados-title {
+  font-size: 1.7rem;
+  font-weight: 800;
+  color: #18181b;
+  margin-bottom: 0.1em;
+  line-height: 1.1;
+}
+.afiliados-subtitle {
+  font-size: 1.05rem;
+  color: #666;
+  font-weight: 400;
+  margin-left: 2px;
+}
+.afiliados-nuevo-btn {
+  background: #18181b;
+  color: #fff;
+  border: none;
+  border-radius: 999px;
+  padding: 0.65em 1.5em;
+  font-size: 1.05rem;
+  font-weight: 600;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+  display: flex;
+  align-items: center;
+  transition: background 0.18s, color 0.18s;
+  cursor: pointer;
+}
+.afiliados-nuevo-btn:hover {
+  background: #11111a;
+}
+
+/* CARD Y FORMULARIO DE BUSQUEDA DE AFILIADOS */
+.afiliados-search-card {
+  border: 1.5px solid #e5e7eb;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: none;
+  padding: 1.2rem 1.5rem 1.5rem 1.5rem;
+  margin-bottom: 2rem;
+}
+.afiliados-search-header {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #18181b;
+  margin-bottom: 1.2rem;
+}
+.afiliados-search-icon {
+  color: #18181b;
+  width: 1.3em;
+  height: 1.3em;
+}
+.afiliados-search-title {
+  font-size: 1.08rem;
+  font-weight: 600;
+}
+.afiliados-search-form {
+  display: flex;
+  flex-direction: row;
+  gap: 1.2rem;
+  width: 100%;
+}
+.afiliados-search-field {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  width: 100%;
+  max-width: 260px;
+}
+.afiliados-search-label {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #18181b;
+  margin-bottom: 0.5em;
+}
+.afiliados-search-input {
+  background: #f6f6f8;
+  border: 1.5px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 0.55em 0.9em;
+  font-size: 0.98rem;
+  color: #22223b;
+  transition: border 0.18s, background 0.18s;
+  outline: none;
+  box-shadow: none;
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  height: 2.2em;
+  box-sizing: border-box;
+}
+.afiliados-search-input:focus {
+  border-color: #18181b;
+  background: #f3f4f6;
+}
+.afiliados-search-input::placeholder {
+  color: #b0b3b8;
+  opacity: 1;
+}
+.afiliados-search-date {
+  min-width: 0;
+  max-width: 100%;
+  height: 2.2em;
+}
+
+/* GRUPO FAMILIAR: CARD, HEADER Y BOTONES DE ACCION */
+.Card, .grupo-card {
+  border-radius: 16px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  border: 2px solid #e0e0e0;
+  background: #fff;
+  margin-bottom: 2rem;
+}
+.grupo-header-bar {
+  background: #f7f7fa;
+  border-bottom: 1.5px solid #ececec;
+  border-radius: 16px 16px 0 0;
+  padding: 1.1rem 1.5rem 0.7rem 1.5rem;
+}
+.grupo-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+.grupo-header-row-main {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+.grupo-header-title {
+  font-size: 1.13rem;
+  font-weight: 700;
+  color: #18181b;
+  margin-bottom: 0;
+  line-height: 1.1;
+}
+.grupo-header-subtitle {
+  font-size: 0.98rem;
+  color: #666;
+  font-weight: 400;
+  margin-left: 2.3em;
+  margin-top: 0.2em;
+}
+.grupo-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.grupo-action-btn {
+  background: #fff;
+  border-radius: 8px;
+  border: 1.5px solid #ececec;
+  padding: 0.35em 0.7em;
+  font-size: 1.1em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.18s, border 0.18s;
+  cursor: pointer;
+}
+.grupo-action-edit {
+  color: #2563eb;
+  border-color: #2563eb;
+  background: #e0e7ff;
+}
+.grupo-action-delete {
+  color: #dc2626;
+  border-color: #dc2626;
+  background: #fee2e2;
+}
+.grupo-action-edit:hover {
+  background: #c7d2fe;
+}
+.grupo-action-delete:hover {
+  background: #fecaca;
+}
