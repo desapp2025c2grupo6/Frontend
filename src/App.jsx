@@ -1,37 +1,34 @@
-import React, { useEffect, useState } from "react";
-import { Box, Grid, Stack } from "@mui/material";
-import { BrowserRouter } from "react-router-dom";
-import { TopMenu } from "./components/TopMenu";
-import { AppRouter } from "./AppRouter";
-import { getCurrentWeather } from "./services/WeatherService";
-import { WeatherIndicator } from "./components/WeatherIndicator";
+import { useState } from 'react';
+import Header from './components/layout/Header';
+import AfiliadosSection from './components/afiliados/AfiliadosSection';
+import PrestadoresSection from './components/prestadores/PrestadoresSection';
+import AgendasSection from './components/agendas/AgendasSection';
+import ReportesSection from './components/reportes/ReportesSection';
 
-export function App() {
-  const [weatherData, setWeatherData] = useState();
+export default function App() {
+  const [activeTab, setActiveTab] = useState('afiliados');
 
-  useEffect(() => {
-    const fetchWeatherData = async () => {
-      const obtainedData = await getCurrentWeather('Buenos Aires');
-      setWeatherData(obtainedData);
+  const renderActiveSection = () => {
+    switch (activeTab) {
+      case 'afiliados':
+        return <AfiliadosSection />;
+      case 'prestadores':
+        return <PrestadoresSection />;
+      case 'agendas':
+        return <AgendasSection />;
+      case 'reportes':
+        return <ReportesSection />;
+      default:
+        return <AfiliadosSection />;
     }
-    fetchWeatherData();
-  }, []);
+  };
 
   return (
-    <BrowserRouter>
-      <Stack direction='column'>
-        <Grid container direction='row'>
-          <Grid item xs={12} md={8}>
-            <TopMenu />
-          </Grid>
-          <Grid item xs={12} md={4}>
-            <WeatherIndicator weatherData={weatherData} />
-          </Grid>
-        </Grid>
-        <Box sx={{mx: { xs: 1, md: 4 }, my: 4}}>
-          <AppRouter />
-        </Box>
-      </Stack>
-    </BrowserRouter>
-  )
+    <div className="min-h-screen bg-gray-50">
+      <Header activeTab={activeTab} onTabChange={setActiveTab} />
+      <main className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+        {renderActiveSection()}
+      </main>
+    </div>
+  );
 }
