@@ -18,6 +18,19 @@ export const gruposFamiliares = [
         situacionesTerapeuticas: [],
         activo: true,
         numeroIntegrante: '01'
+      },
+      {
+        id: 2,
+        nombre: 'Jose',
+        apellido: 'Pérez',
+        fechaNacimiento: '2000-05-10',
+        tipoDocumento: 'DNI',
+        numeroDocumento: '123456558',
+        parentesco: 'HIJO',
+        planMedico: 'Plan A',
+        situacionesTerapeuticas: [],
+        activo: true,
+        numeroIntegrante: '01'
       }
     ]
   },
