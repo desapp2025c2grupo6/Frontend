@@ -1,8 +1,7 @@
 /* NAVBAR HEADER ESTILO DASHBOARD */
 .navbar-header {
   width: 100%;
-  background: #fff;
-  border-bottom: 1px solid #ececec;
+  background: #588157;
   box-shadow: 0 2px 12px rgba(0,0,0,0.04);
   position: sticky;
   top: 0;
@@ -24,14 +23,14 @@
 .navbar-title {
   font-size: 2rem;
   font-weight: 800;
-  color: #18181b;
+  color: #dad7cd;
   margin-bottom: 0.1em;
   line-height: 1.1;
 }
 .navbar-subtitle {
-  font-size: 1.08rem;
-  color: #666;
-  font-weight: 400;
+  font-size: 1.1rem;
+  color: #18181b;
+  font-weight: 500;
   margin-left: 2px;
   margin-bottom: 1.1rem;
 }
@@ -57,7 +56,7 @@
 .tabs-navbar .TabsTrigger {
   background: #fff;
   color: #18181b;
-  border: 1.5px solid #ececec;
+  border: 1.5px solid #18181b;
   border-radius: 999px;
   padding: 0.55em 1.7em;
   font-size: 1.05rem;
@@ -69,12 +68,12 @@
 }
 .tabs-navbar .TabsTrigger[data-state="active"],
 .tabs-navbar .TabsTrigger.active {
-  background: #18181b;
+  background: #a3b18a;
   color: #fff;
   border: 1.5px solid #18181b;
 }
 .tabs-navbar .TabsTrigger:hover {
-  background: #f3f4f6;
+  background: #dad7cd;
   color: #18181b;
 }
 
@@ -85,7 +84,6 @@
   justify-content: space-between;
   padding: 0.5rem 0 1.2rem 0;
   margin-bottom: 0.5rem;
-  border-bottom: 1.5px solid #ececec;
   gap: 1.5rem;
 }
 .afiliados-header-titles {
@@ -95,14 +93,14 @@
   gap: 0.2rem;
 }
 .afiliados-title {
-  font-size: 1.7rem;
-  font-weight: 800;
+  font-size: 1.5rem;
+  font-weight: 700;
   color: #18181b;
   margin-bottom: 0.1em;
   line-height: 1.1;
 }
 .afiliados-subtitle {
-  font-size: 1.05rem;
+  font-size: 1.1rem;
   color: #666;
   font-weight: 400;
   margin-left: 2px;
@@ -130,7 +128,7 @@
   border: 1.5px solid #e5e7eb;
   border-radius: 16px;
   text-align: left;
-  background: #fff;
+  background: #a3b18a;
   box-shadow: none;
   padding: 1.2rem 1.5rem 1.5rem 1.5rem;
   margin-bottom: 2rem;
@@ -211,7 +209,7 @@
   margin-bottom: 2rem;
 }
 .grupo-header-bar {
-  background: #f7f7fa;
+  background: #a3b18a;
   border-bottom: 1.5px solid #ececec;
   border-radius: 16px 16px 0 0;
   padding: 1.1rem 1.5rem 0.7rem 1.5rem;
