@@ -272,3 +272,121 @@
 .grupo-action-delete:hover {
   background: #fecaca;
 }
+
+/*Sección de Prestadores */
+/* Fondo general y cabecera */
+.prestadores-section {
+  background: #f8fafc;
+  min-height: 100vh;
+}
+.prestadores-header-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+.prestadores-title {
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: #25613b;
+  letter-spacing: 0.5px;
+}
+.prestadores-subtitle {
+  font-size: 1.05rem;
+  color: #64748b;
+  margin-top: 0.2rem;
+}
+
+/* Card de búsqueda */
+.prestadores-search-card {
+  background: #a3b18a;
+  border-radius: 16px;
+  border: 1.5px solid #e5e7eb;
+  padding: 2rem 2.5rem 1.2rem 2.5rem;
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+.prestadores-search-header {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #25613b;
+  margin-bottom: 1.2rem;
+}
+
+/* Layout horizontal para la fila de filtros */
+.prestadores-search-row {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  justify-content: flex-start;
+  align-items: flex-end;
+  margin-bottom: 0;
+}
+.prestadores-search-field {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0;
+  min-width: 160px;
+}
+.prestadores-search-label {
+  font-size: 1rem;
+  color: #25613b;
+  font-weight: 500;
+  margin-bottom: 0.3rem;
+}
+.prestadores-search-input,
+.prestadores-search-card input[data-slot="input"],
+.prestadores-search-card input,
+.prestadores-search-card select {
+  background: #f8fafc;
+  border: 1.5px solid #e5e7eb;
+  color: #25613b;
+  font-weight: 500;
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  transition: border 0.2s;
+  box-shadow: none;
+}
+.prestadores-search-input:focus,
+.prestadores-search-card input[data-slot="input"]:focus,
+.prestadores-search-card input:focus,
+.prestadores-search-card select:focus {
+  border-color: #25613b;
+  outline: none;
+}
+.prestadores-search-card [data-slot="select-trigger"] {
+  background: #f8fafc;
+  border: 1.5px solid #e5e7eb;
+  color: #25613b;
+  font-weight: 500;
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  transition: border 0.2s;
+  box-shadow: none;
+}
+.prestadores-search-card [data-slot="select-trigger"]:focus {
+  border-color: #25613b;
+  outline: none;
+}
+.prestadores-nuevo-btn {
+  background: #2563eb;
+  color: #fff;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 0.5rem 1.2rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  border: none;
+  transition: background 0.2s;
+}
+.prestadores-nuevo-btn:hover {
+  background: #1746a2;
+}
+

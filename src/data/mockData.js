@@ -60,10 +60,11 @@ export const gruposFamiliares = [
 
 export const prestadores = [
   {
+    activo: true,
     id: '1',
     cuitCuil: '20123456789',
     nombreCompleto: 'Dra. Tita Merello',
-    especialidades: ['1', '7'], // Cardiología, Medicina General
+    especialidades: ['Cardiología', 'Medicina General'], // Cardiología, Medicina General
     esCentroMedico: false,
     telefonos: [
       { id: '4', numero: '1145678901', tipo: 'TRABAJO', principal: true, activo: true, fechaCreacion: '2024-01-10T00:00:00Z' }
@@ -97,10 +98,11 @@ export const prestadores = [
     creadoPor: 'ADMIN'
   },
   {
+    activo: true,
     id: '2',
     cuitCuil: '20987654321',
     nombreCompleto: 'Dr. Carlos López',
-    especialidades: ['2', '9'], // Neurología, Psiquiatría
+    especialidades: ['Neurología', 'Psiquiatría'], // Neurología, Psiquiatría
     esCentroMedico: false,
     telefonos: [
       { id: '5', numero: '1198765432', tipo: 'TRABAJO' }

@@ -1,11 +1,8 @@
 
 .input, input[data-slot="input"] {
-  background: #f6f6f8;
-  border: 1.5px solid #e5e7eb;
-  border-radius: 8px;
+  /* Eliminar estilos visuales para permitir override desde PrestadoresSection.css */
   padding: 0.55em 0.9em;
   font-size: 0.98rem;
-  color: #22223b;
   transition: border 0.18s, background 0.18s;
   outline: none;
   box-shadow: none;
@@ -20,6 +17,5 @@
   background: #f3f4f6;
 }
 .input::placeholder, input[data-slot="input"]::placeholder {
-  color: #b0b3b8;
   opacity: 1;
 }
