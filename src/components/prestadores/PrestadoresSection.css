@@ -1,0 +1,125 @@
+/* Estilos para la sección Prestadores (nuevo archivo) */
+.prestadores-section {
+	background: #f8fafc;
+	min-height: 100vh;
+	padding: 1.2rem 1.5rem;
+}
+
+/* Card de búsqueda */
+.prestadores-search-card {
+	background: #b2be97;
+	border-radius: 12px;
+	border: 1.5px solid #e5e7eb;
+	padding: 1.2rem 1.5rem;
+	margin-bottom: 1.5rem;
+}
+
+/* Select trigger y dropdown específicos para Prestadores */
+.prestadores-search-card [data-slot="select-trigger"] {
+	background: #fff;
+	border: 1.5px solid #25613b; /* borde verde */
+	color: #25613b;
+	height: 40px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 0 0.9rem;
+	border-radius: 8px;
+}
+.prestadores-search-card [data-slot="select-trigger"] svg {
+	color: #25613b;
+	opacity: 0.95;
+}
+
+.prestadores-search-card [data-slot="select-content"] {
+	background: #fff !important;
+	border: 1px solid #e5e7eb !important;
+	color: #222 !important;
+	border-radius: 8px !important;
+	box-shadow: 0 10px 30px rgba(37,97,59,0.08) !important;
+	padding: 0.25rem !important;
+}
+
+.prestadores-search-card [data-slot="select-item"] {
+	padding: 0.45rem 0.75rem !important;
+	border-radius: 6px !important;
+	color: #222 !important;
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+}
+
+.prestadores-search-card [data-slot="select-item"]:hover,
+.prestadores-search-card [data-slot="select-item"][data-highlighted] {
+	background: #eaf3fa !important;
+	color: #2563eb !important;
+}
+
+.prestadores-search-card [data-slot="select-item"][data-state="checked"] {
+	background: #eaf3fa !important;
+	color: #2563eb !important;
+	font-weight: 600 !important;
+}
+
+.prestadores-search-card [data-slot="select-item"] svg,
+.prestadores-search-card [data-slot="select-item"] .size-4 {
+	color: #2563eb !important;
+}
+
+/* Reglas específicas que apuntan a las clases añadidas en JSX (el contenido se monta en portal) */
+.prestadores-select-content,
+[data-slot="select-content"].prestadores-select-content {
+	background: #fff !important;
+	border: 1px solid #e5e7eb !important;
+	color: #222 !important;
+	border-radius: 8px !important;
+	box-shadow: 0 10px 30px rgba(37,97,59,0.08) !important;
+	padding: 0.25rem !important;
+}
+
+.prestadores-select-content [data-slot="select-item"],
+.prestadores-select-item {
+	padding: 0.45rem 0.75rem !important;
+	border-radius: 6px !important;
+	color: #222 !important;
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+}
+
+.prestadores-select-content [data-slot="select-item"]:hover,
+.prestadores-select-item:hover,
+.prestadores-select-content [data-slot="select-item"][data-highlighted],
+.prestadores-select-item[data-highlighted] {
+	background: #eaf3fa !important;
+	color: #2563eb !important;
+}
+
+.prestadores-select-content [data-slot="select-item"][data-state="checked"],
+.prestadores-select-item[data-state="checked"] {
+	background: #eaf3fa !important;
+	color: #2563eb !important;
+	font-weight: 600 !important;
+}
+
+.prestadores-select-content .size-4,
+.prestadores-select-item .size-4,
+.prestadores-select-item svg {
+	color: #2563eb !important;
+}
+
+/* Botones de acción en la card de prestadores */
+.prestadores-action-btn {
+	width: 40px !important;
+	height: 40px !important;
+	min-width: 40px !important;
+	min-height: 40px !important;
+	max-width: 40px !important;
+	max-height: 40px !important;
+	border-radius: 20px !important;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 0 !important;
+}
+

@@ -114,13 +114,13 @@ export default function PrestadoresSection() {
           <div className="prestadores-search-field">
             <label className="prestadores-search-label">Especialidad</label>
             <Select value={filtros.especialidad || 'all'} onValueChange={(value) => setFiltros({ ...filtros, especialidad: value === 'all' ? undefined : value })}>
-              <SelectTrigger>
+              <SelectTrigger className="prestadores-select-trigger">
                 <SelectValue placeholder="Todas" />
               </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="all">Todas</SelectItem>
+              <SelectContent className="prestadores-select-content">
+                <SelectItem className="prestadores-select-item" value="all">Todas</SelectItem>
                 {especialidades.map(esp => (
-                  <SelectItem key={esp.id} value={esp.id}>{esp.nombre}</SelectItem>
+                  <SelectItem key={esp.id} className="prestadores-select-item" value={esp.id}>{esp.nombre}</SelectItem>
                 ))}
               </SelectContent>
             </Select>
@@ -128,18 +128,18 @@ export default function PrestadoresSection() {
           <div className="prestadores-search-field">
             <label className="prestadores-search-label">Día de Atención</label>
             <Select value={filtros.diaAtencion || 'all'} onValueChange={(value) => setFiltros({ ...filtros, diaAtencion: value === 'all' ? undefined : value })}>
-              <SelectTrigger>
+              <SelectTrigger className="prestadores-select-trigger">
                 <SelectValue placeholder="Todos" />
               </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="all">Todos</SelectItem>
-                <SelectItem value="LUNES">Lunes</SelectItem>
-                <SelectItem value="MARTES">Martes</SelectItem>
-                <SelectItem value="MIERCOLES">Miércoles</SelectItem>
-                <SelectItem value="JUEVES">Jueves</SelectItem>
-                <SelectItem value="VIERNES">Viernes</SelectItem>
-                <SelectItem value="SABADO">Sábado</SelectItem>
-                <SelectItem value="DOMINGO">Domingo</SelectItem>
+              <SelectContent className="prestadores-select-content">
+                <SelectItem className="prestadores-select-item" value="all">Todos</SelectItem>
+                <SelectItem className="prestadores-select-item" value="LUNES">Lunes</SelectItem>
+                <SelectItem className="prestadores-select-item" value="MARTES">Martes</SelectItem>
+                <SelectItem className="prestadores-select-item" value="MIERCOLES">Miércoles</SelectItem>
+                <SelectItem className="prestadores-select-item" value="JUEVES">Jueves</SelectItem>
+                <SelectItem className="prestadores-select-item" value="VIERNES">Viernes</SelectItem>
+                <SelectItem className="prestadores-select-item" value="SABADO">Sábado</SelectItem>
+                <SelectItem className="prestadores-select-item" value="DOMINGO">Domingo</SelectItem>
               </SelectContent>
             </Select>
           </div>

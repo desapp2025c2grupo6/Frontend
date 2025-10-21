@@ -1,0 +1,167 @@
+
+.agendas-root {
+   padding: 1.25rem 1.5rem;
+}
+
+.agendas-container {
+   max-width: 1300px; /* aumentar ancho para que la tarjeta sea más larga */
+   margin: 0 auto;
+   width: 100%;
+   padding-left: 1.25rem; 
+   padding-right: 1.25rem;
+   box-sizing: border-box;
+}
+
+.agendas-container > .agendas-header {
+   padding-left: 0; 
+}
+
+.agendas-header {
+   display: flex;
+   align-items: flex-start;
+   justify-content: space-between;
+   gap: 1rem;
+   margin-bottom: 1rem;
+}
+
+.agendas-title {
+   font-size: 1.5rem;
+   font-weight: 700;
+   color: #0f172a; /* gris oscuro */
+   margin: 0;
+}
+
+.agendas-subtitle {
+   color: #475569;
+   margin: 0.15rem 0 0 0;
+}
+
+/* Alinear el título principal con el contenido interno del Card (CardContent usa px-6 = 1.5rem) */
+.agendas-header .titles {
+   display: flex;
+   flex-direction: column;
+   padding-left: 0; 
+}
+
+.agendas-container .agendas-header .titles,
+.agendas-container .agendas-header .titles * {
+   text-align: left !important;
+}
+.agendas-container .agendas-header {
+   display: flex !important;
+   align-items: flex-start !important;
+   justify-content: space-between !important;
+}
+.agendas-title {
+   text-align: left !important;
+   margin-left: 0 !important;
+}
+
+@media (max-width: 640px) {
+   .agendas-header .titles {
+      padding-left: 0;
+   }
+   .agendas-container {
+      padding-left: 1rem;
+      padding-right: 1rem;
+   }
+}
+
+.agendas-new-btn {
+   background: #2563eb;
+   color: white;
+   border-radius: 8px;
+   padding: 0.5rem 0.9rem;
+   display: inline-flex;
+   align-items: center;
+   gap: 0.5rem;
+   box-shadow: 0 6px 18px rgba(37,99,235,0.12);
+   border: none;
+}
+
+.agendas-search-card {
+   background: #b2be97; 
+   border: 1px solid rgba(0,0,0,0.06);
+   border-radius: 12px;
+   padding: 1rem 1.25rem;
+   box-shadow: 0 2px 10px rgba(15,23,42,0.04);
+   margin-bottom: 1.25rem;
+}
+
+.card-title-search {
+   display: flex;
+   align-items: center;
+   gap: 0.6rem;
+   margin-bottom: 0.8rem;
+   color: #163f2a; 
+   font-weight: 600;
+}
+
+.agendas-search-row {
+   display: flex;
+   gap: 1rem;
+   align-items: center;
+}
+
+
+@media (min-width: 900px) {
+   .agendas-search-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+      align-items: end;
+   }
+}
+
+.agendas-search-field {
+   display: flex;
+   flex-direction: column;
+   align-items: flex-start; 
+   min-width: 0;
+}
+
+.agendas-search-field label {
+   display: block;
+   font-weight: 600;
+   margin-bottom: 0.5rem;
+   color: #163f2a;
+   text-align: left;
+}
+
+/* Reglas para los selects: usar el data-slot de SelectPrimitive y clases creadas */
+.agendas-search-card [data-slot="select-trigger"],
+.agendas-search-card .prestadores-select-trigger,
+.agendas-search-card button[data-slot="select-trigger"] {
+   background: #fff !important;
+   border: 1px solid rgba(0,0,0,0.06) !important;
+   color: #163f2a !important;
+   box-shadow: none !important;
+   outline: none !important;
+      height: 44px;
+      padding: 0 1rem;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+}
+
+.agendas-search-card [data-slot="select-content"] {
+   background: white !important;
+   border: 1px solid #e6edf6 !important;
+   box-shadow: 0 10px 30px rgba(0,0,0,0.06) !important;
+}
+
+/* Forzar que no aparezca contorno fuerte al abrir (outline de foco) */
+.agendas-search-card button[data-slot="select-trigger"]:focus {
+   box-shadow: 0 0 0 3px rgba(37,99,235,0.06) !important;
+}
+
+@media (max-width: 640px) {
+   .agendas-search-row {
+      flex-direction: column;
+      align-items: stretch;
+   }
+}
+
+

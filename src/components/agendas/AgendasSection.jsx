@@ -9,6 +9,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from 
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../ui/select';
 import { AgendaForm } from './AgendaForm';
 import { agendasTurnos, prestadores, especialidades } from '../../data/mockData';
+import './AgendasSection.css';
 
 export function AgendasSection() {
   const [filtros, setFiltros] = useState({ prestador: '', especialidad: '' });
@@ -65,16 +66,17 @@ export function AgendasSection() {
   };
 
   return (
-    <div className="space-y-6">
+    <div className="agendas-root space-y-6">
       {/* Header */}
-      <div className="flex justify-between items-center">
-        <div>
-          <h2 className="text-2xl text-gray-900">Gestión de Agendas de Turnos</h2>
-          <p className="text-gray-600">Configura horarios y turnos disponibles para cada prestador</p>
+      <div className="agendas-container">
+        <div className="agendas-header">
+        <div className="titles">
+          <h2 className="agendas-title">Gestión de Agendas</h2>
+          <p className="agendas-subtitle">Configure las agendas de turnos para cada prestador y especialidad</p>
         </div>
         <Dialog open={mostrarFormulario} onOpenChange={setMostrarFormulario}>
           <DialogTrigger asChild>
-            <Button className="flex items-center space-x-2" onClick={() => setAgendaSeleccionada(null)}>
+            <Button className="agendas-new-btn" onClick={() => setAgendaSeleccionada(null)}>
               <Plus className="h-4 w-4" />
               <span>Nueva Agenda</span>
             </Button>
@@ -95,52 +97,71 @@ export function AgendasSection() {
             />
           </DialogContent>
         </Dialog>
-      </div>
-      {/* Filtros */}
-      <Card>
+        </div>
+        {/* Filtros */}
+        <Card className="agendas-search-card">
         <CardHeader>
-          <CardTitle className="flex items-center space-x-2">
+          <CardTitle className="card-title-search">
             <Search className="h-5 w-5" />
             <span>Filtrar Agendas</span>
           </CardTitle>
         </CardHeader>
         <CardContent>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div>
-              <label className="block mb-2">Prestador</label>
+          <div className="agendas-search-row">
+            <div className="agendas-search-field">
+              <label>Prestador</label>
               <Select value={filtros.prestador || 'all'} onValueChange={(value) => setFiltros({ ...filtros, prestador: value === 'all' ? '' : value })}>
-                <SelectTrigger>
+                <SelectTrigger className="prestadores-select-trigger">
                   <SelectValue placeholder="Todos los prestadores" />
                 </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="all">Todos los prestadores</SelectItem>
+                <SelectContent className="prestadores-select-content">
+                  <SelectItem className="prestadores-select-item" value="all">Todos los prestadores</SelectItem>
                   {prestadores.filter(p => p.activo).map(prestador => (
-                    <SelectItem key={prestador.id} value={prestador.id}>
+                    <SelectItem key={prestador.id} className="prestadores-select-item" value={prestador.id}>
                       {prestador.nombreCompleto}
                     </SelectItem>
                   ))}
                 </SelectContent>
               </Select>
             </div>
-            <div>
-              <label className="block mb-2">Especialidad</label>
+            <div className="agendas-search-field">
+              <label>Especialidad</label>
               <Select value={filtros.especialidad || 'all'} onValueChange={(value) => setFiltros({ ...filtros, especialidad: value === 'all' ? '' : value })}>
-                <SelectTrigger>
+                <SelectTrigger className="prestadores-select-trigger">
                   <SelectValue placeholder="Todas las especialidades" />
                 </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="all">Todas las especialidades</SelectItem>
+                <SelectContent className="prestadores-select-content">
+                  <SelectItem className="prestadores-select-item" value="all">Todas las especialidades</SelectItem>
                   {especialidades.filter(e => e.activa).map(especialidad => (
-                    <SelectItem key={especialidad.id} value={especialidad.id}>
+                    <SelectItem key={especialidad.id} className="prestadores-select-item" value={especialidad.id}>
                       {especialidad.nombre}
                     </SelectItem>
                   ))}
                 </SelectContent>
               </Select>
             </div>
+            <div className="agendas-search-field">
+              <label>Día de Atención</label>
+              <Select value={filtros.diaAtencion || 'all'} onValueChange={(value) => setFiltros({ ...filtros, diaAtencion: value === 'all' ? '' : value })}>
+                <SelectTrigger className="prestadores-select-trigger">
+                  <SelectValue placeholder="Todos los días" />
+                </SelectTrigger>
+                <SelectContent className="prestadores-select-content">
+                  <SelectItem className="prestadores-select-item" value="all">Todos los días</SelectItem>
+                  <SelectItem className="prestadores-select-item" value="LUNES">Lunes</SelectItem>
+                  <SelectItem className="prestadores-select-item" value="MARTES">Martes</SelectItem>
+                  <SelectItem className="prestadores-select-item" value="MIERCOLES">Miércoles</SelectItem>
+                  <SelectItem className="prestadores-select-item" value="JUEVES">Jueves</SelectItem>
+                  <SelectItem className="prestadores-select-item" value="VIERNES">Viernes</SelectItem>
+                  <SelectItem className="prestadores-select-item" value="SABADO">Sábado</SelectItem>
+                  <SelectItem className="prestadores-select-item" value="DOMINGO">Domingo</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
           </div>
         </CardContent>
-      </Card>
+        </Card>
+      </div>
       {/* Lista de agendas */}
       <div className="space-y-4">
         {agendasFiltradas.map((agenda) => (
